@@ -1,9 +1,7 @@
 <div class="search-results">
-  <h2>Search dreams</h2>
-  <ul>
+  <ul class="search-results__list">
     <% @dreams.each do |dream|  %>
-      <li><%= link_to dream.title, display_dream_path(id: dream.id), remote:true, data: {trigger: 'display_dream'}%></li>
+      <li class="search-results__item"><%= link_to dream.title, display_dream_path(id: dream.id), remote:true, data: {trigger: 'display_dream'}, class: "search-results__link"%></li>
     <%end%>
   </ul>
 </div>
-<%= javascript_pack_tag 'display_dream' %>

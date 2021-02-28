@@ -23,6 +23,12 @@ document.body.addEventListener('click', (e) => {
         data.json().then((json) => {
           clearNodesInFront(dream.parentNode)
           main.insertAdjacentHTML('beforeend', json.html)
+          // main.scrollLeft = main.scrollWidth
+          main.scroll({
+            left: main.scrollWidth,
+            behavior: 'smooth'
+          })
+
         })
       })
     }

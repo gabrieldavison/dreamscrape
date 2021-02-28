@@ -1,6 +1,14 @@
+<header class="header">
+  <h1 class="header__site-heading">Dreamscape</h1>
+  <%# <a class="header__randomize-button">Randomize</a> %>
+  <%= link_to "Randomize", dreams_index_path, class: "header__randomize-button"  %>
+  <p class="header__instructions">Highlight a word or phrase to search the databse.</p>
+
+</header>
 <div id="main" class="main">
   <%= render 'dream' %>
 </div>
 
 <%= javascript_pack_tag 'highlight_search' %>
 <%= javascript_pack_tag 'display_dream' %>
+<%= javascript_pack_tag 'highlight_selected_dream_result' %>

@@ -6,8 +6,11 @@ document.body.addEventListener("ajax:success", (event) => {
   if (event.target.dataset.trigger === 'display_dream') {
     const containingList = event.path.find((node) => node.className === 'search-results')
     clearNodesInFront(event.target, containingList)
-
-    main.insertAdjacentHTML("beforeend",response.html)
+    main.insertAdjacentHTML("beforeend", response.html)
+      main.scroll({
+      left: main.scrollWidth,
+      behavior: 'smooth'
+    })
   }
 });
 

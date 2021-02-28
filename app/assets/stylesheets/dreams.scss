@@ -1,3 +1,115 @@
 // Place all the styles related to the dreams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.header {
+
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  
+  &__site-heading {
+    font-family: 'UnifrakturCook', monospace;
+    font-size: 5em;
+    margin: 1rem;
+  }
+  &__randomize-button {
+    width: fit-content;
+    font-family: 'UnifrakturCook', monospace;
+    font-size: 1.5em;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    padding : 0.2em 0.5em;
+    text-decoration: none;
+    margin: 0;
+   
+  }
+   &__randomize-button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black
+
+  }
+  &__instructions {
+  flex-grow: 0;
+  width: fit-content;
+  background-color: black;
+  color: white;
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 0.2em;
+}
+}
+
+
+.main {
+  display: flex;
+  flex: none;
+  width: auto;
+  overflow-x: auto;
+}
+
+
+.dream {
+  height: fit-content;
+  width: 600px;
+  flex-shrink: 0;
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  animation: 0.5s linear fadein;
+}
+
+.search-results {
+  flex-shrink: 0;
+  height: fit-content;
+  max-height: 500px;
+  overflow-y: scroll;
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  animation: 0.5s linear fadein;
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    font-size: 1.2em;
+    margin: 0.2em 0;
+  }
+
+  &__item--selected {
+    background-color: black;
+    a {
+color: white;
+    }
+    
+  }
+
+}
+
+.dream:first-child {
+    margin-left: auto;
+
+}
+.dream:last-child, .search-results:last-child {
+    margin-right: auto;
+}
+
