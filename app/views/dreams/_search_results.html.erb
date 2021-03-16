@@ -1,7 +1,8 @@
 <div class="search-results">
+  <h3>Results for <span class="search-results__query">"<%= query %>"</span></h3>
   <ul class="search-results__list">
     <% @dreams.each do |dream|  %>
-      <li class="search-results__item"><%= link_to dream.title, display_dream_path(id: dream.id), remote:true, data: {trigger: 'display_dream'}, class: "search-results__link"%></li>
+      <li class="search-results__item"><%= link_to dream.title, display_dream_path(id: dream.id, selected: query), remote:true, data: {trigger: 'display_dream'}, class: "search-results__link"%></li>
     <%end%>
   </ul>
 </div>

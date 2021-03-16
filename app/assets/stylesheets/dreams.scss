@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+html {
+  font-family: 'Libre Baskerville', serif;
+}
 
 @keyframes fadein {
   from {
@@ -10,6 +15,44 @@
 
   to {
     opacity: 1;
+  }
+}
+
+
+
+.modal {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 2rem;
+    a {
+      color: white;
+    }
+  }
+  &__close-button {
+    cursor: pointer;
+    border: 1px solid white;
+    font-size: 1.2em;
+    padding: 0.2em 0.5em;
+    margin: 0.5em;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
   }
 }
 
@@ -22,6 +65,13 @@
   text-align: center;
   align-items: center;
   
+  &__modal-link {
+    position: absolute;
+    top:0;
+    right: 0;
+    font-size: 4em;
+    margin: 1rem;
+  }
   &__site-heading {
     font-family: 'UnifrakturCook', monospace;
     font-size: 5em;
@@ -48,8 +98,8 @@
   &__instructions {
   flex-grow: 0;
   width: fit-content;
-  background-color: black;
-  color: white;
+  // background-color: black;
+  // color: white;
   font-size: 1.2em;
   display: inline-block;
   padding: 0.2em;
@@ -73,6 +123,16 @@
   padding: 1rem;
   margin: 1rem;
   animation: 0.5s linear fadein;
+
+  &__search--prev {
+    background-color: black;
+    color: white;
+  }
+
+  &__search--next {
+    background-color: rgb(212, 0, 0);
+    color: white;
+  }
 }
 
 .search-results {
@@ -85,6 +145,11 @@
   margin: 1rem;
   animation: 0.5s linear fadein;
 
+  &__query {
+    background-color: black;
+    color: white;
+  }
+
   &__list {
     list-style-type: none;
     margin: 0;
@@ -93,6 +158,10 @@
   &__item {
     font-size: 1.2em;
     margin: 0.2em 0;
+    a {
+      color: black;
+      font-weight: bold
+    }
   }
 
   &__item--selected {
@@ -113,3 +182,6 @@ color: white;
     margin-right: auto;
 }
 
+.hidden {
+  display: none;
+}

@@ -1,4 +1,18 @@
+<div class="modal hidden" id="modal">
+  <div class="modal__container">
+    <h1>What is this?</h1>
+    <p>Dreamscape is a freeform way to explore the huge list of dreams provided at <a href="https://www.dreambank.net/">Dreambank</a>. The Dreambank UI is very functional but doesn't give you a way to easily explore the links and relationships between different dreams.</p>
+    <p>
+      With Dreamscape you are first presented with a random dream from the database. Highlighting a word or phrase will bring up a list of all other dreams that contain the highlighted text, clicking on a dream will open it. You can continue this process indefinitely to build a retraceable path through the dream database.
+    </p>
+    <p>
+      I am still ironing out some kinks and working on improving the search functionality.
+    </p>
+    <a id="close-modal" class="modal__close-button">close</a>
+  </div>
+</div>
 <header class="header">
+  <a class="header__modal-link" id="modal-link">?</a>
   <h1 class="header__site-heading">Dreamscape</h1>
   <%# <a class="header__randomize-button">Randomize</a> %>
   <%= link_to "Randomize", dreams_index_path, class: "header__randomize-button"  %>
@@ -9,6 +23,7 @@
   <%= render 'dream' %>
 </div>
 
+<%= javascript_pack_tag 'toggle_modal' %>
 <%= javascript_pack_tag 'highlight_search' %>
 <%= javascript_pack_tag 'display_dream' %>
 <%= javascript_pack_tag 'highlight_selected_dream_result' %>
