@@ -13,16 +13,17 @@
 //   })
 // })
 
+
 document.body.addEventListener('click', (e) => {
   if (e.target.className === 'dream-text') {
     const dream = e.target
     const highlightedText = window.getSelection().toString()
-
+    console.log(highlightedText)
 
 
     const main = document.getElementById('main')
     if (highlightedText.length > 1) {
-      unHighlightSpans(dream)
+      unwrapSpans(dream)
       highlightSelection()
       fetch(`/search_dreams?text=${highlightedText}`).then((data) => {
         data.json().then((json) => {
@@ -39,11 +40,11 @@ document.body.addEventListener('click', (e) => {
   }
 })
 
-function unHighlightSpans(target) {
-  const highlightedSpans = target.querySelectorAll(".dream__search--next")
-  if (highlightedSpans.length > 0) {
-      highlightedSpans.forEach(span => {
-    span.classList.remove('dream__search--next')
+function unwrapSpans(target) {
+  const wrappedSpans = target.querySelectorAll(".dream__search--next")
+  if (wrappedSpans.length > 0) {
+    wrappedSpans.forEach(span => {
+      unwrapNode(span)
   })
   }
 
@@ -63,4 +64,16 @@ function clearNodesInFront(node) {
   while (node.nextSibling) {
     main.removeChild(node.nextSibling)
   }
+}
+
+function unwrapNode(node) {
+
+const el = node;
+
+var parent = el.parentNode;
+
+while (el.firstChild) parent.insertBefore(el.firstChild, el);
+
+
+parent.removeChild(el);
 }
